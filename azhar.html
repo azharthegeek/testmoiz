@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Hello World</title>
+</head>
+<body>
+    <h1 id="message">Loading...</h1>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('https://3107-34-125-4-20.ngrok-free.app/hello', {
+                    method: 'GET',
+                    headers: new Headers({
+                        'ngrok-skip-browser-warning': '69420'
+                    })
+                });
+                const data = await response.json();
+
+                document.getElementById('message').innerText = data.message;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+</body>
+</html>
